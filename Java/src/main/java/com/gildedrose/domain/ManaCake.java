@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.domain;
 
 public class ManaCake extends Item {
     public ManaCake(int sellIn, int quality) {

@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import com.gildedrose.domain.*;
+
 public class TexttestFixture {
     public static void main(String[] args) {
         System.out.println("OMGHAI!");
@@ -8,8 +10,8 @@ public class TexttestFixture {
                 new DexterityVest( 10, 20), //
                 new AgedBrie( 2, 0), //
                 new MongooseElexir( 5, 7), //
-                new Sulfuras( 0, 80), //
-                new Sulfuras( -1, 80),
+                new Sulfuras( 0), //
+                new Sulfuras( -1),
                 new BackstagePass( 15, 20),
                 new BackstagePass( 10, 49),
                 new BackstagePass( 5, 49),

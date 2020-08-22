@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.domain;
 
 public class BackstagePass extends Item {
     public BackstagePass(int sellIn, int quality) {
