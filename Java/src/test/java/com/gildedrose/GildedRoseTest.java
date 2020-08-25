@@ -12,13 +12,19 @@ class GildedRoseTest {
     void testValuesDecrease() {
         Item[] items = new Item[] {
                 Item.createItem("foo", 5, 5),
+                Item.createItem("Elixir of the Mongoose", 6, 10),
                 Item.createItem("+5 Dexterity Vest",5,5)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(4, app.items[0].quality);
         assertEquals(4, app.items[0].sellIn);
+        assertEquals(9, app.items[1].quality);
+        assertEquals(5, app.items[1].sellIn);
+        assertEquals(4, app.items[2].quality);
+        assertEquals(4, app.items[2].sellIn);
         assertEquals("foo, 4, 4", app.items[0].toString());
-        assertEquals("+5 Dexterity Vest, 4, 4", app.items[1].toString());
+        assertEquals("Elixir of the Mongoose, 5, 9", app.items[1].toString());
+        assertEquals("+5 Dexterity Vest, 4, 4", app.items[2].toString());
     }
 
     @Test
