@@ -7,16 +7,17 @@ public class TexttestFixture {
         System.out.println("OMGHAI!");
 
         Item[] items = new Item[] {
-                new DexterityVest( 10, 20), //
-                new AgedBrie( 2, 0), //
-                new MongooseElexir( 5, 7), //
-                new Sulfuras( 0), //
-                new Sulfuras( -1),
-                new BackstagePass( 15, 20),
-                new BackstagePass( 10, 49),
-                new BackstagePass( 5, 49),
+                Item.createItem("+5 Dexterity Vest", 10, 60), //
+                Item.createItem("Aged Brie", 2, 0), //
+                Item.createItem("Elixir of the Mongoose", 5, 7), //
+                Item.createItem("Sulfuras, Hand of Ragnaros", 0, 80), //
+                Item.createItem( "Sulfuras, Hand of Ragnaros",-1,80),
+                Item.createItem("Backstage passes to a TAFKAL80ETC concert", 15, 20),
+                Item.createItem("Backstage passes to a TAFKAL80ETC concert", 10, 49),
+                Item.createItem("Backstage passes to a TAFKAL80ETC concert", 5, 49),
                 // this conjured item does not work properly yet
-                new ManaCake( 3, 6) };
+                Item.createItem("Conjured Mana Cake", 3, 6),
+                Item.createItem("foo", 5, 5)};
 
         GildedRose app = new GildedRose(items);
 

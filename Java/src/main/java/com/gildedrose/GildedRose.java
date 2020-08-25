@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import com.gildedrose.domain.Item;
+import com.gildedrose.domain.*;
 
 class GildedRose {
     Item[] items;
@@ -16,6 +16,65 @@ class GildedRose {
     }
 
     private void doUpdateQuality(Item item) {
+        if (item.quality >= 50 && !item.name.equals("Sulfuras, Hand of Ragnaros")) {
+            item.quality = 50;
+        }
+        switch (item.name){
+            case "Aged Brie":
+                if(item.quality < 50 && item.sellIn > 0) {
+                    ++item.quality;
+                } else if(item.quality < 50){
+                    //Niet expliciet vermeld of de "Once the sell by date has passed, Quality degrades twice as fast" ook geldt bij de Aged Brie als double quality increase
+                    item.quality = item.quality + 2;
+                }
+                --item.sellIn;
+
+                break;
+            case "Backstage passes to a TAFKAL80ETC concert":
+
+                if(item.sellIn < 0) {
+                    item.quality = 0;
+                } else {
+                    if(item.quality < 50) {
+                        if(item.sellIn <= 5){
+                            item.quality = item.quality + 3;
+                        } else if(item.sellIn <= 10){
+                            item.quality = item.quality + 2;
+                        } else {
+                            ++item.quality;
+                        }
+                    }
+                }
+                break;
+
+            case "Sulfuras, Hand of Ragnaros":
+                break;
+
+            case "Conjured Mana Cake":
+                if (item.quality > 0 && item.sellIn >0) {
+                    item.quality = item.quality - 2;
+                } else {
+                    item.quality = item.quality - 4;
+                }
+
+                --item.sellIn;
+                break;
+
+            case "+5 Dexterity Vest":
+            case "Elixir of the Mongoose":
+            default:
+                if (item.quality > 0 && item.sellIn >0) {
+                    --item.quality;
+                } else {
+                    item.quality = item.quality - 2;
+                }
+
+                --item.sellIn;
+
+                break;
+
+        }
+/*
         if (!item.name.equals("Aged Brie")
                 && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             if (item.quality > 0) {
@@ -63,6 +122,6 @@ class GildedRose {
                     item.quality = item.quality + 1;
                 }
             }
-        }
+        }*/
     }
 }
